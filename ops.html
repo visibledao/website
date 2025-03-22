@@ -6,10 +6,13 @@ title: Operations
 <main class="isolate">
   <div class="mx-auto mt-12 max-w-7xl px-6 sm:mt-36 lg:px-8">
     <div class="mx-auto max-w-2xl lg:text-center">
-      <span class="text-base/7 text-xl bg-slate-800 text-yellow-200 px-4 py-1">Visible DAO</span>
+      {% include block-logotype.html %}
     </div>
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-      <div class="px-4 sm:px-6 lg:px-8">
+      <h2 class="text-pretty text-6xl font-semibold tracking-tight text-gray-900 sm:text-5xl pt-24 sm:pt-0">
+        Operations
+      </h2>
+      <div class="px-4 sm:px-6 lg:px-8 mt-16">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
             <h1 class="text-base font-semibold text-slate-800">
@@ -157,6 +160,7 @@ title: Operations
 
 <script>
   function toggleModal() {
+    return true
     const modal = document.getElementById("modal");
     if (modal.hasAttribute("hidden")) {
       modal.removeAttribute("hidden")
