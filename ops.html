@@ -1,0 +1,167 @@
+---
+layout: default
+title: Operations
+---
+
+<main class="isolate">
+  <div class="mx-auto mt-12 max-w-7xl px-6 sm:mt-36 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <span class="text-base/7 text-xl bg-slate-800 text-yellow-200 px-4 py-1">Visible DAO</span>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+      <div class="px-4 sm:px-6 lg:px-8">
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold text-slate-800">
+              Transactions
+            </h1>
+            <p class="mt-2 text-sm text-gray-700">
+              A full and open accounting of Visible DAO activity
+              on the BSV public ledger.
+            </p>
+          </div>
+        </div>
+        <div class="mt-8 flow-root">
+          <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <table class="min-w-full divide-y divide-slate-800">
+                <thead>
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-slate-800 sm:pl-0">Txid</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-slate-800">Memo</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-slate-800">Identity</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-800 sm:pl-0">Txid</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-slate-800">Memo</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-slate-800">user@example.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="mx-auto max-w-7xl pt-24 sm:px-6 lg:px-8 mt-24">
+      <div class="relative isolate overflow-hidden bg-white px-6 py-24 text-center sm:px-16">
+        <h2 class="text-balance text-4xl font-semibold tracking-tight text-slate-800 sm:text-5xl">
+          Propose an idea.
+          Fund a thing.
+          Collaborate.
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-slate-800">
+          Visible DAO is a great way to work together to get things done.
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a href="https://github.com/visibledao/website/issues/new"
+            class="rounded-md bg-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            target="_blank"
+          >
+            Make your idea visible</a>
+          <button
+            onclick="toggleModal()"
+            href="#" class="text-sm/6 font-semibold text-slate-800">Learn more <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="absolute inset-x-0 -bottom-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+  <div
+    class="relative left-[calc(40%-11rem)] aspect-[1155/678] w-[46.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FFFFFF] to-[#FFFFFF] sm:left-[calc(50%-20rem)] sm:w-[72.1875rem]"
+    style="clip-path: polygon(74.1% 44.1%, 27.5% 50.0% 76.7%, 37.9% 100% 76.8%, 76.1% 97.7%)">
+  </div>
+</div>
+
+
+<div class="relative z-10"
+  id="modal"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true"
+  hidden>
+  <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+  <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
+
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+        <div class="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+          <button type="button"
+            onclick="toggleModal()"
+            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <span class="sr-only">Close</span>
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true" data-slot="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="sm:flex sm:items-start">
+          <div
+            class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
+            <svg class="size-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true" data-slot="icon">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+            <h3 class="text-base font-semibold text-gray-900" id="modal-title">Deactivate account</h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will
+                be permanently removed from our servers forever. This action cannot be undone.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+          <button type="button"
+            onclick="toggleModal()"
+            class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
+          <button type="button"
+            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleModal() {
+    const modal = document.getElementById("modal");
+    if (modal.hasAttribute("hidden")) {
+      modal.removeAttribute("hidden")
+    } else {
+      modal.setAttribute("hidden", 'true')
+    }
+  }
+</script>
