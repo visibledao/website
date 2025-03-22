@@ -1,4 +1,13 @@
-## Deploy Jekyll to S3 using GitHub Actions
+## Visible DAO
 
-* See the [wiki](https://github.com/afomi/jekyll-with-tailwind-to-s3-via-github-actions/wiki) for instructions
-* See https://jekyll.afomi.com/ for the results
+This is repo is for Visible DAO's static website,
+hosted at https://visibledao.com.
+
+For feedback and questions, please
+[create an issue](https://github.com/visibledao/website/issues).
+
+Join the conversation on [Discord](https://discord.gg/invite/G3WHg46x).
+
+Consider joining
+[Visible DAO](https://visibledao.com/join)
+for a small amount of bitcoin.
