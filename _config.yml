@@ -9,6 +9,7 @@ postcss:
   cache: false
 
 exclude:
+  - CNAME
   - package.json
   - package-lock.json
   - postcss.config.js
