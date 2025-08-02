@@ -21,4 +21,8 @@ class WhatsOnChain
   def get_address_balance(address)
     self.class.get("/v1/#{$CHAIN}/#{$NETWORK}/address/#{address}/unspent/all")
   end
+
+  def get_tx(txid)
+    self.class.get("/v1/#{$CHAIN}/#{$NETWORK}/tx/#{txid}")
+  end
 end

@@ -9,6 +9,19 @@ txs = response["result"]
 txs = txs.filter { |tx| tx["status"] == "confirmed" }
 txs = txs.sort_by { |tx| tx["height"] }
 
-File.open("_data/txs.json", "w") do |f|
+## Loop each TX and get its full contents
+# txs.each do |tx|
+#   response = w.get_tx(tx["tx_hash"])
+#   hash = JSON.parse(response.to_s)
+
+#   puts "Saving #{tx["tx_hash"]} ..."
+#   File.open("_data/txs/#{tx["tx_hash"]}.json", "w") do |f|
+#     f << JSON.pretty_generate(hash)
+#   end
+#   sleep 1.618
+# end
+
+puts "Saving _data/txs/index.json ..."
+File.open("_data/txs/index.json", "w") do |f|
   f << JSON.pretty_generate(txs)
 end
