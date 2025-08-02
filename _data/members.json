@@ -1,44 +1,51 @@
 [
   {
-    "display_name": "",
-    "first_name": "",
-    "last_name": "",
-    "title": ""
+    "display_name": "Ryan Wold",
+    "first_name": "Ryan",
+    "last_name": "Wold",
+    "image_path": "rw-stamp.png",
+    "url": "https://ryanwold.net"
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
   {
     "display_name": "",
     "first_name": "",
     "last_name": "",
-    "title": ""
+    "image_path": "",
+    "url": ""
   },
 ]

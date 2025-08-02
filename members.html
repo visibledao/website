@@ -34,14 +34,21 @@ title: Members
       class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6">
       {% for member in site.data.members %}
       <li>
-        <div
-          class="bg-gradient-to-r from-[#FFA62B] via-[#FFCD4B] to-[#FFF275] mx-auto size-24 rounded-full">
-        </div>
-        <h3
-          class="mt-6 text-base/7 font-semibold tracking-tight text-slate-800">
-          {{ member.display_name }}
-        </h3>
-        <p class="text-sm/6 text-slate-800">{{ member.title }}</p>
+        <a
+          href="{{ member.url }}"
+          target="_blank"
+        >
+          {% if member.image_path != "" %}
+          <img class="mx-auto size-24 rounded-full object-cover" src="{{ site.baseurl }}/assets/images/members/{{ member.image_path }}"
+            alt="{{ member.display_name }} avatar">
+          {% else %}
+          <div class="bg-gradient-to-r from-[#FFA62B] via-[#FFCD4B] to-[#FFF275] mx-auto size-24 rounded-full">
+          </div>
+          {% endif %}
+          <h3 class="mt-6 text-base/7 font-semibold tracking-tight text-slate-800">
+            {{ member.display_name }}
+          </h3>
+        </a>
       </li>
       {% endfor %}
     </ul>
