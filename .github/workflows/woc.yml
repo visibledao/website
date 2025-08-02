@@ -1,0 +1,23 @@
+name: Update txs.json from WhatsOnChain
+
+on:
+  workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+
+jobs:
+  process_airtable_and_fork:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.6'
+          bundler-cache: true
+
+      - name: Fetch Data from WhatsOnChain and create a branch if txs.json data changes
+        run: bundle exec ruby lib/get_txs.rb
