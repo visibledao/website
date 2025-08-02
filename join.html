@@ -3,6 +3,8 @@ layout: default
 title: Join
 ---
 
+<script src="{{ site.baseurl }}/assets/js/qrcode.min.js"></script>
+
 <div
   class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl -top-80" aria-hidden="true">
   <div
@@ -31,8 +33,12 @@ title: Join
       <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-slate-800">
         Become a member for 0.1 BSV
       </p>
-      <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="#"
+
+      <div
+        class="mt-10 flex items-center justify-center gap-x-6">
+        <a
+          href="javascript:void(0)"
+          id="join-today"
           class="rounded-md bg-slate-800 px-3.5 py-2.5 text-sm font-semibold text-yellow-200 shadow-sm hover:bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           Join today
         </a>
@@ -40,6 +46,26 @@ title: Join
           class="text-sm/6 font-semibold text-slate-800">Support without joining
             <span aria-hidden="true">→</span></a>
       </div>
+
+      <div
+        id="fade-div"
+        class="mt-8 hidden opacity-0 transition-opacity duration-500 ease-out bg-gray-100 p-4 rounded shadow">
+        <p class="mt-4 text-xs font-mono text-slate-800 break-all text-center">
+          Send 0.1 BSV to join Visible DAO
+        </p>
+        <div
+          id="qrcode"
+          class="mt-4 mb-8 w-32 h-32 mx-auto rounded shadow-md"
+        ></div>
+
+        <p class="text-xs font-mono text-slate-800 break-all text-center">
+          13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ
+        </p>
+        <p class="my-2 text-xs font-mono text-slate-800 break-all text-center">
+          send BitcoinSV here only
+        </p>
+      </div>
+
     </div>
   </div>
 </div>
@@ -52,3 +78,24 @@ title: Join
     style="clip-path: polygon(40.1% 44.1%, 100% 61.6%, 60.2% 82.4%, 45.2% 34.5%, 0.1% 84.9%, 17.9% 100%, 44.1% 74.1%)">
   </div>
 </div>
+
+<script>
+  var qrcode = new QRCode("qrcode", {
+    text: "13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ",
+    width: 128,
+    height: 128,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+
+<script>
+  document.getElementById("join-today").addEventListener("click", function () {
+    const fadeDiv = document.getElementById("fade-div")
+    fadeDiv.classList.remove("hidden")
+    requestAnimationFrame(() => {
+      fadeDiv.classList.add("opacity-100")
+    })
+  })
+</script>
