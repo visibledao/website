@@ -10,7 +10,7 @@
       "New member"
     ],
     "type": "organization",
-    "color": "#06b6d4"
+    "color": "#fef08a"
   },
   {
     "id": "visible-dao-website",
@@ -20,7 +20,86 @@
     "url": "https://visibledao.com",
     "contributors": ["Ryan Wold"],
     "type": "website",
-    "color": "#f97316"
+    "color": "#6b7280"
   },
-
+  {
+    "id": "bsv-radar",
+    "name": "BSV Radar",
+    "description": "BSV blockchain monitoring and analytics",
+    "status": "active",
+    "url": "https://bsvradar.com/",
+    "contributors": ["New member"],
+    "type": "analytics",
+    "color": "#6b7280"
+  },
+  {
+    "id": "copedex",
+    "name": "Copedex",
+    "description": "Trading platform",
+    "status": "active",
+    "url": "https://copedex.com/",
+    "contributors": ["New member"],
+    "type": "platform",
+    "color": "#6b7280"
+  },
+  {
+    "id": "fund-feature",
+    "name": "Fund Feature",
+    "description": "Feature funding platform",
+    "status": "active",
+    "url": "https://fundfeature.com/",
+    "contributors": ["New member"],
+    "type": "platform",
+    "color": "#6b7280"
+  },
+  {
+    "id": "rare-pepe-club",
+    "name": "Rare Pepe Club",
+    "description": "Digital collectibles marketplace",
+    "status": "active",
+    "url": "https://rarepepe.club/",
+    "contributors": ["New member"],
+    "type": "marketplace",
+    "color": "#6b7280"
+  },
+  {
+    "id": "tlon",
+    "name": "Tlon",
+    "description": "Decentralized communication platform",
+    "status": "active",
+    "url": "https://tlon.cc/",
+    "contributors": ["New member"],
+    "type": "platform",
+    "color": "#6b7280"
+  },
+  {
+    "id": "shadily-vision",
+    "name": "Shadily Vision",
+    "description": "Creative vision platform",
+    "status": "active",
+    "url": "https://shadilayvision.com/",
+    "contributors": ["New member"],
+    "type": "creative",
+    "color": "#6b7280"
+  },
+  {
+    "id": "black-rug",
+    "name": "Black Rug",
+    "description": "Community platform",
+    "status": "active",
+    "url": "https://blackrug.org/",
+    "contributors": ["New member"],
+    "type": "community",
+    "color": "#6b7280"
+  },
+  {
+    "id": "costin-coins",
+    "name": "Costin Coins",
+    "description": "Cryptocurrency service",
+    "status": "active",
+    "url": "https://costincoins.com/",
+    "contributors": ["New member"],
+    "type": "service",
+    "color": "#6b7280"
+  }
 ]
