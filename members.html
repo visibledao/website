@@ -266,13 +266,18 @@ title: Members
       .style("stroke-width", 2);
   });
 
-  // Add click handler - join modal for both members and projects
+  // Add click handler - gray projects open URLs, others open join modal
   node.on("click", function(event, d) {
-    // Always open join modal for any node click
-    const modal = document.getElementById("join-modal");
-    if (modal) {
-      modal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
+    if (d.type === "project" && d.color === "#6b7280" && d.url) {
+      // Open gray project nodes in new tab
+      window.open(d.url, '_blank');
+    } else {
+      // Open join modal for other nodes
+      const modal = document.getElementById("join-modal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
     }
   });
 
