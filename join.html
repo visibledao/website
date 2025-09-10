@@ -1,9 +1,12 @@
 ---
 layout: default
 title: Join
+image: /assets/images/visible-dao-join-preview.png
 ---
 
 <script src="{{ site.baseurl }}/assets/js/qrcode.min.js"></script>
+
+{% include join-modal.html %}
 
 <div
   class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl -top-80" aria-hidden="true">
@@ -80,17 +83,6 @@ title: Join
 </div>
 
 <script>
-  var qrcode = new QRCode("qrcode", {
-    text: "13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ",
-    width: 128,
-    height: 128,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
-</script>
-
-<script>
   document.getElementById("join-today").addEventListener("click", function () {
     const fadeDiv = document.getElementById("fade-div")
     fadeDiv.classList.remove("hidden")
@@ -98,4 +90,13 @@ title: Join
       fadeDiv.classList.add("opacity-100")
     })
   })
+
+  // Show modal on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("join-modal");
+    if (modal) {
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+  });
 </script>
