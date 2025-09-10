@@ -3,6 +3,8 @@ layout: default
 title: Operations
 ---
 
+<script src="{{ site.baseurl }}/assets/js/qrcode.min.js"></script>
+
 <main class="isolate">
   <div class="mx-auto mt-12 max-w-7xl px-6 sm:mt-36 lg:px-8">
     <div class="mx-auto max-w-2xl lg:text-center">
@@ -64,122 +66,66 @@ title: Operations
     </div>
   </div>
 
-  <div>
-    <div class="mx-auto max-w-7xl pt-24 sm:px-6 lg:px-8 mt-24">
-      <div class="relative isolate overflow-hidden bg-white px-6 py-24 text-center sm:px-16">
-        <h2 class="text-balance text-4xl font-semibold tracking-tight text-slate-800 sm:text-5xl">
-          Propose an idea.
-          Collaborate.
-          Fund a thing.
+  <div class="relative isolate overflow-hidden mt-24">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 class="text-balance text-4xl font-semibold tracking-tight text-slate-800 sm:text-5xl mb-4">
+          Get Involved
         </h2>
-        <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-slate-800">
-          Let's work together and get things done.
+        <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-slate-600">
+          Join our transparent community or propose ideas to move forward together.
         </p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
+      </div>
+      
+      <div class="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-2">
+        <!-- Propose Ideas Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+          <div class="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-xl mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-600">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 3.75V18a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-.75m15 .75v-.75M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10Z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+            Propose & Collaborate
+          </h3>
+          <p class="text-slate-600 mb-6">
+            Share your ideas, collaborate with others, and help build something meaningful together.
+          </p>
           <a href="https://github.com/visibledao/website/issues/new"
-            class="rounded-md bg-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            target="_blank"
-          >
-            Make your idea visible</a>
-          <button
-            onclick="toggleModal()"
-            href="#" class="text-sm/6 font-semibold text-slate-800">Learn more <span aria-hidden="true">→</span>
-          </button>
+            class="inline-flex items-center justify-center w-full rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-600 transition-colors duration-200"
+            target="_blank">
+            Make your idea visible
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
         </div>
 
+        <!-- Join DAO Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+          <div class="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-xl mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+            Join Visible DAO
+          </h3>
+          <p class="text-slate-600 mb-6">
+            Become a member for 0.1 BSV and participate in transparent, decentralized operations.
+          </p>
+          <button id="join-today-ops"
+            class="inline-flex items-center justify-center w-full rounded-lg bg-slate-800 px-4 py-3 text-sm font-semibold text-yellow-200 shadow-lg hover:bg-slate-900 transition-colors duration-200">
+            Join today
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </main>
 
-<div class="absolute inset-x-0 -bottom-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-  <div
-    class="relative left-[calc(40%-11rem)] aspect-[1155/678] w-[46.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FFFFFF] to-[#FFFFFF] sm:left-[calc(50%-20rem)] sm:w-[72.1875rem]"
-    style="clip-path: polygon(74.1% 44.1%, 27.5% 50.0% 76.7%, 37.9% 100% 76.8%, 76.1% 97.7%)">
-  </div>
-</div>
+{% include join-modal.html %}
 
-
-<div class="relative z-10"
-  id="modal"
-  aria-labelledby="modal-title"
-  role="dialog"
-  aria-modal="true"
-  hidden>
-  <!--
-    Background backdrop, show/hide based on modal state.
-
-    Entering: "ease-out duration-300"
-      From: "opacity-0"
-      To: "opacity-100"
-    Leaving: "ease-in duration-200"
-      From: "opacity-100"
-      To: "opacity-0"
-  -->
-  <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
-
-  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-      <!--
-        Modal panel, show/hide based on modal state.
-
-        Entering: "ease-out duration-300"
-          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          To: "opacity-100 translate-y-0 sm:scale-100"
-        Leaving: "ease-in duration-200"
-          From: "opacity-100 translate-y-0 sm:scale-100"
-          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-      -->
-      <div
-        class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-        <div class="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-          <button type="button"
-            onclick="toggleModal()"
-            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            <span class="sr-only">Close</span>
-            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-              aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div class="sm:flex sm:items-start">
-          <div
-            class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-            <svg class="size-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-              aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-            </svg>
-          </div>
-          <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-            <h3 class="text-base font-semibold text-gray-900" id="modal-title">Deactivate account</h3>
-            <div class="mt-2">
-              <p class="text-sm text-slate-800">Are you sure you want to deactivate your account? All of your data will
-                be permanently removed from our servers forever. This action cannot be undone.</p>
-            </div>
-          </div>
-        </div>
-        <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-          <button type="button"
-            onclick="toggleModal()"
-            class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
-          <button type="button"
-            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  function toggleModal() {
-    return true
-    const modal = document.getElementById("modal");
-    if (modal.hasAttribute("hidden")) {
-      modal.removeAttribute("hidden")
-    } else {
-      modal.setAttribute("hidden", 'true')
-    }
-  }
-</script>

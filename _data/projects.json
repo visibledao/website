@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bitcoin-transparency-tools",
+    "name": "Visible DAO",
+    "description": "The DAO itself",
+    "status": "active",
+    "url": "https://whatsonchain.com/address/13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ",
+    "contributors": [
+      "Ryan Wold",
+      "New member"
+    ],
+    "type": "organization",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "visible-dao-website",
+    "name": "Website",
+    "description": "Open-source Jekyll website with Bitcoin integration and transparent operations",
+    "status": "active",
+    "url": "https://visibledao.com",
+    "contributors": ["Ryan Wold"],
+    "type": "website",
+    "color": "#f97316"
+  },
+
+]
