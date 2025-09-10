@@ -6,11 +6,13 @@
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.1",
+    "d3": "^7.9.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-deps": "cp node_modules/d3/dist/d3.min.js assets/js/"
   },
   "repository": {
     "type": "git",
