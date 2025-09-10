@@ -1,0 +1,109 @@
+<!-- Join DAO Modal -->
+<div id="join-modal" class="fixed inset-0 bg-black bg-opacity-60 overflow-y-auto h-full w-full hidden z-50 flex items-center justify-center p-4" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full mx-auto transform transition-all">
+    <!-- Close button -->
+    <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200 z-10">
+      <span class="sr-only">Close</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    
+    <!-- Modal content -->
+    <div class="p-8 text-center">
+      <div class="mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto text-slate-800 mb-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        </svg>
+        <h3 class="text-2xl font-semibold text-slate-800 mb-2" id="modal-title">
+          Join Visible DAO
+        </h3>
+        <p class="text-slate-600 mb-6">
+          Send <span class="font-semibold text-slate-800">0.1 BSV</span> to become a member
+        </p>
+      </div>
+      
+      <div class="bg-gray-50 rounded-xl p-6 mb-6">
+        <div id="qrcode" class="w-48 h-48 mx-auto rounded-lg shadow-lg mb-4 bg-white p-2"></div>
+        <p class="text-sm font-mono text-slate-800 break-all mb-3 bg-white px-3 py-2 rounded-lg border">
+          13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ
+        </p>
+        <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold">
+          BitcoinSV only
+        </p>
+      </div>
+      
+      <div class="text-xs text-gray-500">
+        <p>Your transaction will appear on the blockchain.</p>
+        <p class="mt-1">Welcome to transparent operations!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // QR Code generation
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof QRCode !== 'undefined' && document.getElementById('qrcode')) {
+      var qrcode = new QRCode("qrcode", {
+        text: "13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ",
+        width: 192,
+        height: 192,
+        colorDark: "#1e293b",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  });
+
+  // Modal functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("join-modal");
+    const closeButton = document.getElementById("close-modal");
+    
+    // Find all join buttons
+    const joinButtons = document.querySelectorAll('[id^="join-today"]');
+    
+    // Open modal function
+    function openModal() {
+      if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    }
+    
+    // Close modal function
+    function closeModal() {
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+    }
+    
+    // Attach event listeners to all join buttons
+    joinButtons.forEach(button => {
+      button.addEventListener("click", openModal);
+    });
+    
+    // Close modal with X button
+    if (closeButton) {
+      closeButton.addEventListener("click", closeModal);
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+    
+    // Close modal when clicking outside
+    if (modal) {
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+    }
+  });
+</script>

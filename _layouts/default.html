@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>{{ site.title }} {{ page.title }} </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }} - Opt for Open with Bitcoin{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Join Visible DAO and use bitcoin to increase transparency. Human-scale peer-to-peer relationships with transparent operations and civic-minded community.{% endif %}">
+    <meta name="keywords" content="bitcoin, dao, transparency, peer-to-peer, community, BSV, visible dao">
+    <meta name="author" content="Visible DAO">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-
-    <meta property="og:site_name" content="Visible DAO">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/sun.svg">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Opt for Open">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="{{ site.url }}">
-
-    <meta name="twitter:site" content="@visibledao">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Visible DAO">
-    <meta name="twitter:description" content="Opt for Open">
-    <meta property="twitter:image" content="{{ site.url }}/assets/images/visible-dao-preview.png">
+    <meta property="og:site_name" content="Visible DAO">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Visible DAO - Opt for Open{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Join Visible DAO and use bitcoin to increase transparency. Human-scale peer-to-peer relationships with transparent operations.{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:image" content="{{ site.url }}/assets/images/visible-dao-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@visibledao">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}Visible DAO - Opt for Open{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Join Visible DAO and use bitcoin to increase transparency. Human-scale peer-to-peer relationships with transparent operations.{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/visible-dao-preview.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Visible DAO",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/sun.svg",
+      "description": "A decentralized autonomous organization focused on transparency through bitcoin. Join for 0.1 BSV and participate in human-scale peer-to-peer relationships with transparent operations.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://x.com/visibledao",
+        "https://github.com/visibledao",
+        "https://discord.gg/invite/G3WHg46x"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://discord.gg/invite/G3WHg46x"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "DAO Membership",
+        "description": "Join Visible DAO for 0.1 BSV",
+        "price": "0.1",
+        "priceCurrency": "BSV",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
   </head>
   <body
     class="bg-yellow-200">
@@ -38,6 +84,7 @@
         <div class="flex gap-x-4 sm:gap-x-8 lg:gap-x-12">
           <a href="/about" class="text-sm/6 font-semibold text-gray-900">About</a>
           <a href="/ops" class="text-sm/6 font-semibold text-gray-900">Operations</a>
+          <a href="/open" class="text-sm/6 font-semibold text-gray-900">Open Source</a>
           <a href="/members" class="text-sm/6 font-semibold text-gray-900">Members</a>
         </div>
         <div class="hidden md:flex md:flex-1 md:justify-end">

@@ -108,28 +108,12 @@ title: "Home"
 
         <div
           class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="javascript:void(0)" id="join-today"
+          <button id="join-today"
             class="rounded-md bg-slate-800 px-3.5 py-2.5 text-sm font-semibold text-yellow-200 shadow-lg hover:bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             Join today
-          </a>
+          </button>
           <a href="/about" class="text-sm/6 font-semibold text-slate-800">Support without joining
             <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div
-          id="fade-div"
-          class="mt-8 hidden opacity-0 transition-opacity duration-500 ease-out bg-white p-4 rounded shadow">
-          <p class="mt-4 text-xs font-mono text-slate-800 break-all text-center">
-            Send 0.1 BSV to join Visible DAO
-          </p>
-          <div id="qrcode" class="mt-4 mb-4 w-32 h-32 mx-auto rounded shadow-md"></div>
-
-          <p class="text-xs font-mono text-slate-800 break-all text-center">
-            13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ
-          </p>
-          <p class="my-4 text-xs font-mono text-slate-800 break-all text-center">
-            send BitcoinSV here only
-          </p>
         </div>
 
       </div>
@@ -137,26 +121,8 @@ title: "Home"
   </div>
 </main>
 
-<script>
-  var qrcode = new QRCode("qrcode", {
-    text: "13ycKt5iTceSbmZ1GGJgvKsoGaJPv2pVgZ",
-    width: 128,
-    height: 128,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
-</script>
+{% include join-modal.html %}
 
-<script>
-  document.getElementById("join-today").addEventListener("click", function () {
-    const fadeDiv = document.getElementById("fade-div")
-    fadeDiv.classList.remove("hidden")
-    requestAnimationFrame(() => {
-      fadeDiv.classList.add("opacity-100")
-    })
-  })
-</script>
 
 <div
   class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
