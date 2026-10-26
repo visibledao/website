@@ -1,220 +1,184 @@
 ---
 layout: default
 title: Working in the Open
-description: Notes on the virtues and business benefits of open-source development, transparent operations, and building in public for sustainable innovation.
+description: What Visible DAO does in public, how to check it, and how to take part.
 ---
-
-<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-  <div
-    class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[46.125rem] -translate-x-1/2 rotate-[45deg] bg-gradient-to-tr from-[#FFFFFF] to-[#FFFFFF] sm:left-[calc(80%-30rem)] sm:w-[72.1875rem]"
-    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 27.5% 76.7%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-  </div>
-</div>
 
 <script src="{{ site.baseurl }}/assets/js/qrcode.min.js"></script>
 
-<div class="mb-12">
-  <main class="isolate">
-    <div class="mx-auto mt-28 max-w-7xl px-6 sm:mt-36 lg:px-8">
-      {% include block-logotype.html %}
-    </div>
-  </main>
-</div>
+<main class="isolate">
+  <div class="mx-auto mt-28 max-w-3xl px-6 sm:mt-36 lg:px-8">
 
-<div class="mx-auto max-w-4xl px-6 py-12 lg:px-8">
-  <article class="prose prose-lg mx-auto">
-
-    <header class="mb-16 text-center">
-      <h1 class="text-pretty text-5xl sm:text-6xl font-semibold tracking-tight text-slate-800 mb-6">
+    <header>
+      <h1 class="text-pretty text-5xl font-semibold tracking-tight text-slate-800 sm:text-6xl">
         Working in the Open
       </h1>
-      <p class="text-xl text-slate-600 leading-relaxed">
-        Notes on transparency, collaboration, and the business case for open-source development
+      <p class="mt-6 text-pretty text-xl text-slate-800">
+        What we do in public, how to check it, and how to take part.
       </p>
     </header>
 
-    <div class="prose prose-slate max-w-none text-lg leading-relaxed">
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">The Foundation of Trust</h2>
-        <p class="mb-4">
-          In an age where trust is the scarcest resource, transparency becomes the most valuable currency.
-          Working in the open isn't just about making code available—it's about building systems that
-          inherently resist corruption and invite participation.
-        </p>
-        <p>
-          When you work in the open, you signal to the world that you have nothing to hide. Your bugs are visible,
-          your progress is measurable, and your intentions are clear. This radical transparency creates a foundation
-          upon which genuine innovation can flourish.
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">Business Benefits of Open Source</h2>
-
-        <div class="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 class="text-xl font-semibold text-slate-800 mb-4">💡 Innovation Multiplier</h3>
-          <p class="text-slate-700">
-            Open source amplifies innovation by allowing thousands of minds to contribute to solving problems.
-            What might take a closed team years to discover, an open community can solve in months.
-          </p>
+    <!-- What's open -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        What's open
+      </h2>
+      <dl class="mt-4 divide-y divide-slate-800/20 border-y border-slate-800/20">
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Money
+          </dt>
+          <dd class="text-slate-800 sm:col-span-2">
+            Every payment in and out of the treasury is on the BSV public ledger.
+          </dd>
+          <dd class="text-sm font-semibold sm:text-right">
+            <a
+              href="/ops"
+              class="text-slate-800 hover:text-orange-500">
+              See the books
+              <span aria-hidden="true">→</span>
+            </a>
+          </dd>
         </div>
-
-        <div class="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 class="text-xl font-semibold text-slate-800 mb-4">🛡️ Security Through Scrutiny</h3>
-          <p class="text-slate-700">
-            "Many eyes make all bugs shallow." Open source code undergoes constant peer review,
-            making it more secure than proprietary alternatives. Security through obscurity is a myth;
-            security through transparency is a reality.
-          </p>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Code
+          </dt>
+          <dd class="text-slate-800 sm:col-span-2">
+            This website and our tools are open source.
+            Read it, fork it, or send a fix.
+          </dd>
+          <dd class="text-sm font-semibold sm:text-right">
+            <a
+              href="https://github.com/visibledao"
+              target="_blank"
+              rel="noopener"
+              class="text-slate-800 hover:text-orange-500">
+              GitHub
+              <span aria-hidden="true">→</span>
+            </a>
+          </dd>
         </div>
-
-        <div class="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 class="text-xl font-semibold text-slate-800 mb-4">📈 Network Effects</h3>
-          <p class="text-slate-700">
-            Open projects benefit from network effects. As more people use, contribute to, and build upon
-            your work, its value increases exponentially. Closed systems hit natural limits;
-            open systems can scale indefinitely.
-          </p>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Infrastructure
+          </dt>
+          <dd class="text-slate-800 sm:col-span-2">
+            bitblocks is a free, MIT-licensed BSV explorer and API.
+            Anyone can use it.
+          </dd>
+          <dd class="text-sm font-semibold sm:text-right">
+            <a
+              href="https://bitblocks.app"
+              target="_blank"
+              rel="noopener"
+              class="text-slate-800 hover:text-orange-500">
+              bitblocks.app
+              <span aria-hidden="true">→</span>
+            </a>
+          </dd>
         </div>
-
-        <div class="bg-gray-50 rounded-xl p-8 mb-8">
-          <h3 class="text-xl font-semibold text-slate-800 mb-4">🎯 Market Validation</h3>
-          <p class="text-slate-700">
-            Building in public provides real-time market feedback. You learn what people actually want,
-            not what they say they want in surveys. This leads to products that solve real problems
-            for real users.
-          </p>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Conversation
+          </dt>
+          <dd class="text-slate-800 sm:col-span-2">
+            Office Hours are open to everyone, every week.
+            The chain is for what happened.
+            Discord is for what's happening.
+          </dd>
+          <dd class="text-sm font-semibold sm:text-right">
+            <a
+              href="https://discord.gg/invite/AhaqnkNDZw"
+              target="_blank"
+              rel="noopener"
+              class="text-slate-800 hover:text-orange-500">
+              Discord
+              <span aria-hidden="true">→</span>
+            </a>
+          </dd>
         </div>
-      </section>
+      </dl>
+    </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">The Virtue of Vulnerability</h2>
-        <p class="mb-4">
-          Working in the open requires courage. It means showing your incomplete thoughts,
-          your failed experiments, and your learning process. This vulnerability is not weakness—it's strength.
-        </p>
-        <blockquote class="border-l-4 border-slate-800 pl-6 py-2 my-8 italic text-slate-700 bg-yellow-50 rounded-r-lg">
-          "The cave you fear to enter holds the treasure you seek." <br>
-          <cite class="text-sm not-italic">— Joseph Campbell</cite>
-        </blockquote>
-        <p>
-          When you expose your process, you invite others to help you improve it. You transform
-          potential critics into collaborators. You turn the fear of judgment into the power of collective intelligence.
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">Open Source as Economic Strategy</h2>
-        <p class="mb-4">
-          The most successful companies of our era—Google, Facebook, Netflix, Airbnb—built their
-          competitive advantages on open source foundations. They understood that commodity technologies
-          should be open, allowing them to focus resources on their unique value propositions.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-6 my-8">
-          <div class="bg-white border border-slate-800 rounded-lg p-6">
-            <h4 class="font-semibold text-slate-800 mb-3">Reduced Development Costs</h4>
-            <p class="text-slate-600 text-sm">
-              Why reinvent the wheel? Stand on the shoulders of giants and focus your
-              resources on innovation, not recreation.
-            </p>
-          </div>
-          <div class="bg-white border border-slate-800 rounded-lg p-6">
-            <h4 class="font-semibold text-slate-800 mb-3">Faster Time to Market</h4>
-            <p class="text-slate-600 text-sm">
-              Leverage existing solutions and communities to accelerate your development
-              cycle and reach customers sooner.
-            </p>
-          </div>
-          <div class="bg-white border border-slate-800 rounded-lg p-6">
-            <h4 class="font-semibold text-slate-800 mb-3">Talent Attraction</h4>
-            <p class="text-slate-600 text-sm">
-              The best developers want to work on projects that matter, that they can
-              be proud of, and that contribute to something larger than themselves.
-            </p>
-          </div>
-          <div class="bg-white border border-slate-800 rounded-lg p-6">
-            <h4 class="font-semibold text-slate-800 mb-3">Future-Proofing</h4>
-            <p class="text-slate-600 text-sm">
-              Open source projects outlive their creators. Your contribution becomes
-              part of humanity's shared knowledge base.
-            </p>
-          </div>
+    <!-- Why -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Why
+      </h2>
+      <dl class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div>
+          <dt class="font-semibold text-slate-800">
+            Check, don't trust
+          </dt>
+          <dd class="mt-1 text-slate-800">
+            Trust should come from what you can check, not from who says it.
+            A public ledger lets anyone check.
+          </dd>
         </div>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">Bitcoin and Open Source Philosophy</h2>
-        <p class="mb-4">
-          Bitcoin represents the ultimate expression of working in the open. Its code is public,
-          its ledger is transparent, and its governance is decentralized. Yet it has created
-          trillions of dollars in value precisely because of these characteristics, not despite them.
-        </p>
-        <p class="mb-4">
-          Like bitcoin, successful open source projects create value through trust minimization.
-          Instead of asking users to trust institutions, they provide systems that users can verify independently.
-          This shifts the foundation of trust from authority to mathematics and transparency.
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">Building Regenerative Systems</h2>
-        <p class="mb-4">
-          Open source creates regenerative rather than extractive systems. Instead of hoarding knowledge and
-          creating artificial scarcity, it shares knowledge and creates abundance. When you give away your source code,
-          you don't have less—you have more, because others improve it and give those improvements back.
-        </p>
-        <p>
-          This is how we build a future where technology serves humanity rather than enslaving it.
-          Where innovation accelerates through collaboration rather than stagnating through competition.
-          Where the best ideas win because they're the best ideas, not because they're controlled by
-          the richest companies.
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold text-slate-800 mb-6">The Path Forward</h2>
-        <p class="mb-4">
-          Working in the open isn't always easy, but it's always worth it. Start small:
-        </p>
-        <ul class="list-disc pl-6 mb-4 space-y-2">
-          <li>Open source one small tool or library</li>
-          <li>Document your learning process publicly</li>
-          <li>Share your failures along with your successes</li>
-          <li>Engage with existing open source communities</li>
-          <li>Make your project's roadmap and decision-making process transparent</li>
-        </ul>
-        <p>
-          Each act of openness creates ripples that extend far beyond what you can imagine.
-          You're not just building software—you're building a better world.
-        </p>
-      </section>
-
-      <section class="pt-4">
-        <div class="bg-slate-50 border border-slate-800 rounded-xl p-8 text-center">
-          <p class="text-lg text-slate-700 mb-6">
-            Ready to join a community that values transparency over secrecy, collaboration over competition,
-            and abundance over artificial scarcity?
-          </p>
-          <button id="join-today-footer"
-            class="rounded-md bg-slate-800 px-6 py-3 text-base font-semibold text-yellow-200 shadow-lg hover:bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors duration-200">
-            Join Visible DAO
-          </button>
+        <div>
+          <dt class="font-semibold text-slate-800">
+            Show the work
+          </dt>
+          <dd class="mt-1 text-slate-800">
+            Bugs, drafts, and failed experiments stay visible.
+            Critics become collaborators when they can see the process.
+          </dd>
         </div>
-      </section>
+        <div>
+          <dt class="font-semibold text-slate-800">
+            Grow the commons
+          </dt>
+          <dd class="mt-1 text-slate-800">
+            Shared code doesn't run out.
+            Others improve it and give the improvements back.
+          </dd>
+        </div>
+      </dl>
+    </section>
 
-    </div>
-  </article>
-</div>
+    <!-- Start small -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Start small
+      </h2>
+      <ol class="mt-4 space-y-3 text-slate-800">
+        <li class="flex gap-3">
+          <span class="font-mono font-semibold">1</span>
+          <span>
+            Look up one transaction in <a href="/ops" class="font-semibold underline hover:text-orange-500">our books</a>.
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono font-semibold">2</span>
+          <span>
+            Come to one Office Hours and see what we're working on.
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono font-semibold">3</span>
+          <span>
+            Make one thing of your own public: a tool, a lesson learned, or a roadmap.
+          </span>
+        </li>
+      </ol>
+    </section>
+
+    {% include office-hours.html %}
+
+    <!-- Join -->
+    <section class="mt-16 mb-24 text-center">
+      <p class="text-pretty text-lg text-slate-800">
+        Membership is 0.1 BSV, recorded on chain.
+      </p>
+      <button
+        id="join-today-footer"
+        class="mt-6 rounded-md bg-slate-800 px-6 py-3 text-base font-semibold text-yellow-200 shadow-lg hover:bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors duration-200">
+        Join Visible DAO
+      </button>
+    </section>
+
+  </div>
+</main>
 
 {% include join-modal.html %}
-
-<div
-  class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-  aria-hidden="true">
-  <div
-    class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#FFFFFF] to-[#FFFFFF] sm:left-[calc(40%+24rem)] sm:w-[72.1875rem]"
-    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 60.2% 62.4%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8% 76.1% 97.7%, 74.1% 44.1%)">
-  </div>
-</div>

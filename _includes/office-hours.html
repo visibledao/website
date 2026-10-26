@@ -1,0 +1,42 @@
+{% capture office_hours_calendar_url %}https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Visible%20DAO%20Office%20Hours&amp;dates=20261029T090000/20261029T100000&amp;ctz=America/Los_Angeles&amp;recur=RRULE:FREQ%3DWEEKLY%3BBYDAY%3DTH&amp;location=https%3A%2F%2Fdiscord.gg%2Finvite%2FAhaqnkNDZw&amp;details=Weekly%20open%20Office%20Hours%20on%20Discord.%20Bring%20questions%2C%20ideas%2C%20and%20work%20in%20progress.{% endcapture %}
+<!-- Office Hours reminder -->
+<div class="mx-auto mt-24 max-w-2xl">
+  <div
+    class="flex flex-col gap-6 rounded-2xl bg-yellow-300 p-6 text-yellow-950 ring-1 ring-yellow-400 shadow-sm sm:flex-row sm:items-center">
+    <div
+      class="flex size-16 shrink-0 flex-col items-center justify-center rounded-xl bg-yellow-100 text-yellow-900 ring-1 ring-yellow-400">
+      <span class="text-xs font-semibold uppercase tracking-wide">
+        Weekly
+      </span>
+      <span class="text-lg font-semibold leading-none">
+        Thu
+      </span>
+    </div>
+    <div class="flex-auto">
+      <p class="text-lg font-semibold">
+        Office Hours
+      </p>
+      <p class="mt-1 text-sm text-yellow-900">
+        Thursdays, 9–10am Pacific, on Discord.
+        Open to everyone.
+      </p>
+    </div>
+    <div class="flex shrink-0 flex-col gap-2 text-sm font-semibold">
+      <a
+        href="https://discord.gg/invite/AhaqnkNDZw"
+        target="_blank"
+        rel="noopener"
+        class="rounded-md bg-yellow-900 px-3.5 py-2 text-center text-yellow-100 hover:bg-yellow-950">
+        Join on Discord
+      </a>
+      <a
+        href="{{ office_hours_calendar_url | strip }}"
+        target="_blank"
+        rel="noopener"
+        class="text-center text-yellow-900 hover:text-orange-600">
+        Add to calendar
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</div>

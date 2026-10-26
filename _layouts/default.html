@@ -8,6 +8,11 @@
     <meta name="keywords" content="bitcoin, dao, transparency, peer-to-peer, community, BSV, visible dao">
     <meta name="author" content="Visible DAO">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    {% if page.noindex %}
+    <meta
+      name="robots"
+      content="noindex, nofollow">
+    {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
     <!-- Favicon -->

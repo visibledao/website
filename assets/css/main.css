@@ -29,3 +29,32 @@
 html {
   font-family: "Public Sans", sans-serif;
 }
+
+/* Shimmer highlight for key phrases */
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #1e293b 0%,
+    #1e293b 35%,
+    #f97316 45%,
+    #fbbf24 50%,
+    #f97316 55%,
+    #1e293b 65%,
+    #1e293b 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 3s ease-in-out 1s 1 forwards;
+  background-position: -200% center;
+}
