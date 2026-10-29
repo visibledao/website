@@ -1,0 +1,70 @@
+name: Proposal
+description: Propose a project or an expense for Visible DAO. Anyone can propose; members decide.
+title: "Proposal: "
+labels:
+  - proposal
+  - "status: proposed"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing something.
+        Here's what happens next: we talk it through here and at Thursday Office Hours, and members decide at the next monthly close (the first Thursday of the month).
+        Short and concrete beats long and complete.
+        You can edit this later.
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: One or two sentences. What would we do or pay for?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Who benefits, and how does it grow the commons, the market, or the books?
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      description: Where does this mostly live?
+      options:
+        - The commons (shared tools and infrastructure)
+        - The market (businesses and builders earning with the commons)
+        - The books (keeping the DAO honest and visible)
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: steward
+    attributes:
+      label: Steward
+      description: Who keeps this moving and gives a one-line update at each monthly close? It can be you.
+    validations:
+      required: true
+  - type: input
+    id: cost
+    attributes:
+      label: Cost
+      description: "Per month, one time, or none. Example: $1,000/month, 0.5 BSV once, or none."
+    validations:
+      required: true
+  - type: textarea
+    id: signal
+    attributes:
+      label: How we'll know it's working
+      description: One or two things we could check at the quarterly review.
+  - type: textarea
+    id: end
+    attributes:
+      label: What would end it
+      description: When should we stop or discontinue it?
+  - type: checkboxes
+    id: present
+    attributes:
+      label: Office Hours
+      options:
+        - label: I can talk it through at a Thursday Office Hours (9–10am Pacific, on Discord).

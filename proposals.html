@@ -1,0 +1,118 @@
+---
+layout: default
+title: Proposals
+description: How a project or expense becomes part of Visible DAO, and every proposal so far.
+permalink: /proposals/
+noindex: true
+---
+
+<main class="isolate">
+  <div class="mx-auto mt-28 max-w-3xl px-6 sm:mt-36 lg:px-8">
+
+    <header>
+      <p class="inline-block rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-yellow-200">
+        Proposed process · not yet adopted
+      </p>
+      <h1 class="mt-6 text-pretty text-5xl font-semibold tracking-tight text-slate-800 sm:text-6xl">
+        Proposals
+      </h1>
+      <p class="mt-6 text-pretty text-xl text-slate-800">
+        Anyone can propose a project.
+        Members decide.
+        Everything happens in the open, on GitHub.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a
+          href="https://github.com/visibledao/website/issues/new?template=proposal.yml"
+          class="rounded-md bg-slate-800 px-4 py-2.5 text-sm font-semibold text-yellow-200 shadow-lg hover:bg-slate-900">
+          Propose a project
+        </a>
+        <a
+          href="/lab/flows/"
+          class="text-sm font-semibold text-slate-800 hover:text-orange-500">
+          See how money would flow
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- How it works -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        How it works
+      </h2>
+      <ol class="mt-4 divide-y divide-slate-800/20 border-y border-slate-800/20">
+        <li class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <p class="font-semibold text-slate-800">
+            1 · Propose
+          </p>
+          <p class="text-slate-800 sm:col-span-3">
+            Open a proposal on GitHub.
+            Say what, why, who stewards it, what it costs, and what would end it.
+            Short and concrete beats long and complete.
+          </p>
+        </li>
+        <li class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <p class="font-semibold text-slate-800">
+            2 · Discuss
+          </p>
+          <p class="text-slate-800 sm:col-span-3">
+            Talk it through in the issue and at Thursday Office Hours.
+            Leave a 👍 to show support.
+            Edit the proposal as it gets better.
+          </p>
+        </li>
+        <li class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <p class="font-semibold text-slate-800">
+            3 · Decide
+          </p>
+          <p class="text-slate-800 sm:col-span-3">
+            Members decide at the monthly close, on the first Thursday of the month.
+            A majority of members carries it.
+            The decision is recorded in the issue, and the status label changes to active or declined.
+          </p>
+        </li>
+        <li class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <p class="font-semibold text-slate-800">
+            4 · Run
+          </p>
+          <p class="text-slate-800 sm:col-span-3">
+            An active proposal with a cost becomes an active expense on the books.
+            Its steward posts a one-line update at each monthly close.
+          </p>
+        </li>
+        <li class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <p class="font-semibold text-slate-800">
+            5 · Review
+          </p>
+          <p class="text-slate-800 sm:col-span-3">
+            Every quarter, members keep it, change it, or discontinue it.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Live list from GitHub -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        All proposals
+      </h2>
+      <div
+        id="proposals-list"
+        aria-live="polite">
+        <p class="mt-10 text-slate-600">
+          Loading proposals from GitHub…
+        </p>
+      </div>
+    </section>
+
+    {% include office-hours.html %}
+
+    <div class="mb-24"></div>
+  </div>
+</main>
+
+<script src="{{ site.baseurl }}/assets/js/proposals.js"></script>
+<script>
+  Proposals.render(document.getElementById('proposals-list'));
+</script>
