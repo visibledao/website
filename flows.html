@@ -1,0 +1,383 @@
+---
+layout: default
+title: "Fund flows (proposal)"
+description: "A proposed model of how money moves through Visible DAO: all revenue received first, then allocated to expenses that are proposed, active, or discontinued."
+permalink: /lab/flows/
+noindex: true
+---
+
+<style>
+  .fl-pipe {
+    fill: none;
+    stroke: #1e293b;
+    stroke-opacity: 0.18;
+    stroke-width: 2;
+    stroke-dasharray: 4 5;
+  }
+  .fl-pipe-earmark { stroke: #f97316; stroke-opacity: 0.45; }
+  .fl-backfill { stroke: #92400e; stroke-opacity: 0.35; }
+  .fl-drain { stroke-dasharray: 2 4; }
+  .fl-tank { fill: #ffffff; fill-opacity: 0.55; }
+  .fl-tray { fill: #ffffff; fill-opacity: 0.55; stroke: #1e293b; stroke-opacity: 0.3; }
+  .fl-wall { fill: none; stroke: #1e293b; stroke-width: 2.5; stroke-linejoin: round; }
+  .fl-target { stroke: #f97316; stroke-width: 2; stroke-dasharray: 6 4; }
+  .fl-lot { stroke: #1e293b; stroke-opacity: 0.25; stroke-width: 0.75; }
+  .fl-coin-stroke { stroke: #1e293b; stroke-width: 1.25; }
+  .fl-label { font: 600 14px "Public Sans", sans-serif; fill: #1e293b; }
+  .fl-meta { font: 12px "Public Sans", sans-serif; fill: #475569; }
+  .fl-over { font-weight: 600; fill: #1e293b; }
+  .fl-swatch {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 9999px;
+    border: 1px solid #1e293b;
+    vertical-align: -0.1rem;
+  }
+  .fl-swatch-restricted {
+    background-image: repeating-linear-gradient(45deg, transparent 0 2px, #fde047 2px 4px);
+  }
+  .fl-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .fl-table th { text-align: left; font-weight: 600; padding: 0.4rem 0.5rem; border-bottom: 2px solid #1e293b; }
+  .fl-table td { padding: 0.4rem 0.5rem; border-bottom: 1px solid rgba(30, 41, 59, 0.12); vertical-align: top; }
+  .fl-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .fl-hash { font-family: ui-monospace, monospace; font-size: 0.75rem; color: #475569; }
+  .fl-empty { color: #64748b; font-style: italic; }
+  .fl-short { color: #c2410c; font-weight: 600; }
+  .fl-tampered td { background: #fed7aa; }
+  .fl-status { font-size: 0.875rem; margin-top: 0.5rem; min-height: 1.25rem; }
+  .fl-input {
+    width: 100%;
+    min-width: 5rem;
+    padding: 0.25rem 0.4rem;
+    border: 1px solid rgba(30, 41, 59, 0.3);
+    border-radius: 0.375rem;
+    background: #ffffff;
+    font-size: 0.875rem;
+  }
+  .fl-mini {
+    padding: 0 0.3rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    color: #1e293b;
+  }
+  .fl-mini:disabled { opacity: 0.25; }
+  .fl-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: #1e293b;
+    color: #fef08a;
+  }
+  .fl-btn:disabled { opacity: 0.4; }
+  .fl-btn-ghost { background: transparent; color: #1e293b; box-shadow: inset 0 0 0 1px rgba(30, 41, 59, 0.4); }
+  .fl-pipe-proposed { stroke-opacity: 0.08; }
+  .fl-wall-proposed { stroke-dasharray: 6 5; stroke-opacity: 0.55; }
+  .fl-wall-discontinued { stroke-opacity: 0.2; }
+  .fl-discontinued { opacity: 0.4; }
+  .fl-proposed .fl-target { stroke-opacity: 0.4; }
+  .fl-stage { font: 600 12px "Public Sans", sans-serif; fill: #64748b; letter-spacing: 0.06em; text-transform: uppercase; }
+  .fl-status-proposed { font-style: italic; }
+  .fl-status-discontinued { text-decoration: line-through; }
+  .fl-row-proposed td,
+  .fl-row-discontinued td { color: #64748b; }
+  .fl-card {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(30, 41, 59, 0.15);
+  }
+  .fl-card-proposed { background: rgba(255, 255, 255, 0.3); box-shadow: inset 0 0 0 1px rgba(30, 41, 59, 0.3); border: 1px dashed rgba(30, 41, 59, 0.35); }
+  .fl-card-discontinued { opacity: 0.55; }
+  .fl-input-title { font-weight: 600; flex: 1; }
+  .fl-input-status { width: auto; min-width: 0; }
+  .fl-src { display: flex; align-items: center; gap: 0.5rem; }
+  .fl-src .fl-swatch { flex: none; }
+  .fl-src .fl-input { flex: 1; min-width: 7rem; }
+  textarea.fl-input { resize: vertical; }
+  .fl-scroll { overflow-x: auto; }
+  .fl-svg { display: block; min-width: 680px; width: 100%; height: auto; }
+</style>
+
+<main class="isolate">
+  <div class="mx-auto mt-28 max-w-6xl px-4 sm:mt-36 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl sm:text-center">
+      <p class="inline-block rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-yellow-200">
+        Proposal · not yet adopted
+      </p>
+      <h1 class="mt-6 text-5xl sm:text-6xl font-semibold tracking-tight text-slate-800">
+        Where the money goes
+      </h1>
+      <p class="mt-6 text-xl text-slate-800">
+        All revenue comes in first.
+        Then each active expense draws what it needs, on its own.
+        Every coin remembers where it came from.
+      </p>
+    </div>
+
+    <section
+      class="mt-12"
+      aria-label="Simulation controls">
+      <div class="flex flex-wrap items-center gap-3">
+        <button
+          id="btn-step"
+          type="button"
+          class="fl-btn">
+          Step a month
+        </button>
+        <button
+          id="btn-play"
+          type="button"
+          class="fl-btn fl-btn-ghost">
+          Play
+        </button>
+        <button
+          id="btn-reset"
+          type="button"
+          class="fl-btn fl-btn-ghost">
+          Reset
+        </button>
+        <span
+          id="month-readout"
+          class="ml-2 text-lg font-semibold text-slate-800">
+          Month 0
+        </span>
+        <label class="ml-auto flex items-center gap-2 text-sm text-slate-800">
+          <input
+            id="opt-vary"
+            type="checkbox">
+          Inflows vary ±40%
+        </label>
+        <label class="flex items-center gap-2 text-sm text-slate-800">
+          <input
+            id="opt-backfill"
+            type="checkbox">
+          General fund covers shortfalls
+        </label>
+      </div>
+      <p
+        id="inflow-readout"
+        class="mt-2 text-sm text-slate-600">
+      </p>
+    </section>
+
+    <div class="fl-scroll mt-4 rounded-xl bg-white/40 p-2">
+      <svg
+        id="flow-svg"
+        class="fl-svg"
+        viewBox="0 0 1000 700"
+        role="img"
+        aria-label="Every revenue source pours into one Received stock. From there, each active expense draws up to its monthly target, and the rest goes to the general fund. Proposed expenses are outlined and receive nothing. Active expenses drain into a paid-out tray at month end.">
+      </svg>
+    </div>
+
+    <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-slate-700">
+      <li>
+        Coin color = where the money came from.
+      </li>
+      <li>
+        <span class="fl-swatch fl-swatch-restricted" style="background-color:#f97316"></span>
+        Hatched = restricted to one expense, never swept.
+      </li>
+      <li>
+        Dashed outline = proposed, receives nothing yet.
+      </li>
+      <li>
+        <span class="inline-block w-5 border-t-2 border-dashed border-orange-500 align-middle"></span>
+        Dashed line = monthly target.
+      </li>
+      <li>
+        Bottom layer drains first: restricted, then oldest.
+      </li>
+    </ul>
+
+    <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <section>
+        <h2 class="text-2xl font-semibold text-slate-800">
+          This month
+        </h2>
+        <p class="mt-1 text-sm text-slate-600">
+          Which coins paid which bill.
+        </p>
+        <div class="fl-scroll mt-3">
+          <table class="fl-table">
+            <thead>
+              <tr>
+                <th>Expense</th>
+                <th class="fl-num">Target</th>
+                <th>Result</th>
+                <th>Paid by</th>
+              </tr>
+            </thead>
+            <tbody id="summary-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-slate-800">
+          1 · Revenue
+        </h2>
+        <p class="mt-1 text-sm text-slate-600">
+          Everything received lands in one place before anything is allocated.
+          A source can restrict its money to one expense.
+          The amounts are placeholders.
+        </p>
+        <div class="fl-scroll mt-3">
+          <table class="fl-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>$ / month</th>
+                <th>Restriction</th>
+              </tr>
+            </thead>
+            <tbody id="sources-body"></tbody>
+          </table>
+        </div>
+        <button
+          id="btn-add-source"
+          type="button"
+          class="fl-btn fl-btn-ghost mt-4">
+          + Add a source
+        </button>
+      </section>
+    </div>
+
+    <section class="mt-12">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-800">
+            2 · Expenses
+          </h2>
+          <p class="mt-1 max-w-2xl text-sm text-slate-600">
+            Each expense is its own module.
+            Only active ones receive money, in the order listed.
+            Propose one, approve it, or discontinue it.
+            Changes take effect next month.
+          </p>
+          <p class="mt-1 text-sm">
+            <a
+              href="/proposals/"
+              class="font-semibold text-slate-800 hover:text-orange-500">
+              Propose one for real
+              <span aria-hidden="true">→</span>
+            </a>
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button
+            id="btn-propose"
+            type="button"
+            class="fl-btn">
+            + Propose an expense
+          </button>
+          <button
+            id="btn-defaults"
+            type="button"
+            class="fl-btn fl-btn-ghost">
+            Restore defaults
+          </button>
+        </div>
+      </div>
+      <ol
+        id="expenses-list"
+        class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      </ol>
+    </section>
+
+    <section class="mt-16">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-800">
+            The third entry
+          </h2>
+          <p class="mt-1 max-w-2xl text-sm text-slate-600">
+            Every movement debits one stock and credits another.
+            Each receipt is a SHA-256 hash of its entry plus the previous receipt, so changing any past entry breaks every receipt after it.
+            These receipts are simulated and stay in your browser.
+            On-chain, they would be Bitcom transactions anyone can audit.
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button
+            id="btn-verify"
+            type="button"
+            class="fl-btn">
+            Verify chain
+          </button>
+          <button
+            id="btn-tamper"
+            type="button"
+            class="fl-btn fl-btn-ghost">
+            Tamper with an entry
+          </button>
+        </div>
+      </div>
+      <p
+        id="verify-status"
+        class="fl-status"
+        role="status"></p>
+      <p
+        id="ledger-count"
+        class="text-xs text-slate-500"></p>
+      <div class="fl-scroll mt-2">
+        <table class="fl-table">
+          <thead>
+            <tr>
+              <th class="fl-num">#</th>
+              <th class="fl-num">Mo</th>
+              <th>Phase</th>
+              <th>Debit (from)</th>
+              <th>Credit (to)</th>
+              <th>Coin</th>
+              <th class="fl-num">Amount</th>
+              <th>Receipt</th>
+            </tr>
+          </thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 max-w-2xl text-slate-800">
+      <h2 class="text-2xl font-semibold">
+        Questions this model forces
+      </h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 text-base/7">
+        <li>
+          Who can propose an expense, and what moves it from proposed to active?
+          Here it's one dropdown.
+          In practice, it could be a member vote at the monthly close.
+        </li>
+        <li>
+          What happens to money given for an expense that isn't approved, or is discontinued?
+          Here it waits in the general fund, still restricted, until that expense is active again or the giver releases it.
+        </li>
+        <li>
+          Should surplus roll over as a reserve, or return to the general fund?
+          A reserve smooths bad months.
+          Returning it keeps money free for whatever is needed next.
+        </li>
+        <li>
+          Which coin pays first?
+          This model spends restricted money first, then oldest.
+          Change that rule and the "paid by" story changes, even though the totals don't.
+        </li>
+        <li>
+          Who sets priority?
+          Order only matters when unrestricted money runs short.
+          It's a governance decision that members could revisit at each monthly close.
+        </li>
+        <li>
+          What would make these receipts real?
+          Each ledger entry could be posted as a MAP-tagged Bitcom record, with app=visibledao, from a DAO-owned address.
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<script src="{{ site.baseurl }}/assets/js/flows-model.js"></script>
+<script src="{{ site.baseurl }}/assets/js/flows-view.js"></script>

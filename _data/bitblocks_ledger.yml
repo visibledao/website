@@ -1,0 +1,20 @@
+# Open books for the bitblocks node, rendered at /bitblocks.
+#
+# BSV received is read live from the chain, so it never goes here.
+# This file holds fiat received and every expense.
+#
+# Leave a value null until it's known: null shows as "—", while 0 means nothing happened.
+# Each spend gets a line under `expenses`, with its txid (if paid in BSV) and receipt:
+#
+#   expenses:
+#     - item: "Bitcoin SV full node and hosting"
+#       usd: 0
+#       txid: null
+#       receipt_url: null
+#
+# Keep these books separate from support for Ryan personally.
+months:
+  - month: "2026-11"
+    fiat_in_usd: null
+    expenses: []
+    note: "Books open. This month's node bill and its receipt go here."

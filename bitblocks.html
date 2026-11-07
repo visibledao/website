@@ -1,0 +1,345 @@
+---
+layout: default
+title: Bitblocks
+description: A free, open index of the BSV ledger, and a proposal to fund the node behind it with every cent in the open.
+permalink: /bitblocks/
+noindex: true
+proposal_url:
+---
+
+<script src="{{ site.baseurl }}/assets/js/qrcode.min.js"></script>
+
+<main class="isolate">
+  <div class="mx-auto mt-28 max-w-3xl px-6 sm:mt-36 lg:px-8">
+
+    <header>
+      <p class="inline-block rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-yellow-200">
+        Proposal · not yet adopted
+      </p>
+      <h1 class="mt-6 text-pretty text-5xl font-semibold tracking-tight text-slate-800 sm:text-6xl">
+        Bitblocks
+      </h1>
+      <p class="mt-6 text-pretty text-xl text-slate-800">
+        A free, open index of the BSV ledger.
+        Anyone can look up what happened, and anyone can build on it.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a
+          href="#back-it"
+          class="rounded-md bg-slate-800 px-4 py-2.5 text-sm font-semibold text-yellow-200 shadow-lg hover:bg-slate-900">
+          Back the node
+        </a>
+        <a
+          href="https://bitblocks.app"
+          target="_blank"
+          rel="noopener"
+          class="text-sm font-semibold text-slate-800 hover:text-orange-500">
+          Open bitblocks.app
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- The bill -->
+    <section
+      class="mt-16 rounded-2xl bg-white/60 p-6 shadow-sm"
+      aria-label="This month's funding">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+            The monthly bill
+          </p>
+          <p
+            class="mt-1 font-mono text-4xl font-semibold text-slate-800"
+            data-support="target">
+            —
+          </p>
+        </div>
+        <div class="sm:text-right">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+            Received, last 30 days
+          </p>
+          <p
+            class="mt-1 font-mono text-4xl font-semibold text-slate-800"
+            data-support="received">
+            —
+          </p>
+        </div>
+      </div>
+      <div
+        id="support-meter"
+        class="mt-4 h-4 overflow-hidden rounded-full bg-yellow-100 ring-1 ring-slate-800/20"
+        role="progressbar"
+        aria-label="Share of the monthly bill received in the last 30 days"
+        aria-valuemin="0"
+        aria-valuemax="100">
+        <div
+          id="support-bar"
+          class="h-full bg-slate-800"
+          style="width: 0"></div>
+      </div>
+      <p class="mt-3 text-sm text-slate-800">
+        <span data-support="received-30d">—</span> in the last 30 days.
+        <span data-support="received-total">—</span> all time.
+      </p>
+      <p class="mt-1 text-sm text-slate-600">
+        These numbers come from bitblocks' own index, so the explorer audits its own funding.
+      </p>
+      <p
+        id="support-status"
+        class="mt-1 text-sm text-slate-600"
+        role="status"></p>
+    </section>
+
+    <!-- What it is -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        What the node keeps online
+      </h2>
+      <dl class="mt-4 divide-y divide-slate-800/20 border-y border-slate-800/20">
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Explorer
+          </dt>
+          <dd class="text-slate-800 sm:col-span-3">
+            A public index of BSV, free to use, with no account.
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            API
+          </dt>
+          <dd class="text-slate-800 sm:col-span-3">
+            A free API, so wallets, tools, and apps can read the ledger without running a node of their own.
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Bitcom registry
+          </dt>
+          <dd class="text-slate-800 sm:col-span-3">
+            A live registry of the protocols people publish on chain.
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-4 sm:gap-4">
+          <dt class="font-semibold text-slate-800">
+            Open source
+          </dt>
+          <dd class="text-slate-800 sm:col-span-3">
+            MIT-licensed.
+            <a
+              href="https://github.com/afomi/bitblocks"
+              target="_blank"
+              rel="noopener"
+              class="font-semibold underline hover:text-orange-500">Read the code on GitHub</a>.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- The proposal -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        The proposal
+      </h2>
+      <p class="mt-4 text-pretty text-2xl font-semibold tracking-tight text-slate-800">
+        Should Visible DAO take this on?
+      </p>
+      <p class="mt-3 text-base/7 text-slate-800">
+        One member pays the node's bill today.
+        Shared infrastructure should have shared support, so this is the case for funding it together, with the books open from the first month.
+      </p>
+      <p class="mt-3 text-base/7 text-slate-800">
+        Members decide at a monthly close, and until then this stays a proposal.
+      </p>
+      <p class="mt-4 text-sm">
+        <a
+          href="{{ page.proposal_url | default: '/proposals/' }}"
+          class="font-semibold text-slate-800 hover:text-orange-500">
+          Join the discussion
+          <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </section>
+
+    <!-- Ways to back it -->
+    <section
+      id="back-it"
+      class="mt-16 scroll-mt-24">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Back the node
+      </h2>
+      <div class="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <div>
+          <div
+            id="support-give"
+            class="hidden">
+            <div
+              id="support-qr"
+              class="mx-auto size-52 rounded-lg bg-white p-2 shadow-sm sm:mx-0"></div>
+            <p
+              id="support-address"
+              class="mt-3 break-all rounded-lg bg-white px-3 py-2 font-mono text-sm text-slate-800"></p>
+            <p class="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              BitcoinSV only
+            </p>
+          </div>
+          <p
+            id="support-no-address"
+            class="text-slate-800">
+            The donation address will appear here once the live numbers load.
+          </p>
+        </div>
+        <div>
+          <ul class="space-y-4 text-slate-800">
+            <li>
+              <p class="font-semibold">
+                Node Patron
+              </p>
+              <p class="text-sm">
+                The whole monthly bill, with your name on the node.
+              </p>
+            </li>
+            <li>
+              <p class="font-semibold">
+                Block Sponsor
+              </p>
+              <p class="text-sm">
+                $240 a month.
+                Five sponsors cover the bill.
+              </p>
+            </li>
+            <li>
+              <p class="font-semibold">
+                Byte-sized
+              </p>
+              <p class="text-sm">
+                Any amount, as often as you like.
+              </p>
+            </li>
+          </ul>
+          <p class="mt-4 text-sm text-slate-600">
+            These tiers are a draft.
+            BSV is the only way to give for now, and more ways will follow.
+            Contributions aren't tax-deductible.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open books -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Open books
+      </h2>
+      <p class="mt-4 text-base/7 text-slate-800">
+        BSV received is read from the chain, and everything else is listed here with its receipt.
+        These books are separate from the Visible DAO treasury.
+      </p>
+
+      <h3 class="mt-8 font-semibold text-slate-800">
+        Monthly costs
+      </h3>
+      <table class="mt-2 w-full text-sm text-slate-800">
+        <tbody id="support-costs">
+          <tr class="border-b border-slate-800/20">
+            <td class="py-2 pr-4">
+              Live costs load from bitblocks.
+            </td>
+            <td class="py-2 text-right font-mono">
+              —
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="mt-8 font-semibold text-slate-800">
+        Money in and out
+      </h3>
+      <div class="mt-2 overflow-x-auto">
+        <table class="w-full text-sm text-slate-800">
+          <thead>
+            <tr class="border-b-2 border-slate-800 text-left">
+              <th
+                scope="col"
+                class="py-2 pr-4 font-semibold">
+                Month
+              </th>
+              <th
+                scope="col"
+                class="py-2 pr-4 font-semibold">
+                BSV in
+              </th>
+              <th
+                scope="col"
+                class="py-2 pr-4 font-semibold">
+                Fiat in
+              </th>
+              <th
+                scope="col"
+                class="py-2 font-semibold">
+                Expenses
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% assign months = site.data.bitblocks_ledger.months | reverse %}
+            {% for m in months %}
+            <tr class="border-b border-slate-800/20 align-top">
+              <td class="py-2 pr-4 font-mono">
+                {{ m.month }}
+              </td>
+              <td class="py-2 pr-4">
+                <a
+                  data-support="address-link"
+                  href="#back-it"
+                  target="_blank"
+                  rel="noopener"
+                  class="font-semibold underline hover:text-orange-500">On chain</a>
+              </td>
+              <td class="py-2 pr-4 font-mono">
+                {% if m.fiat_in_usd == nil %}—{% else %}${{ m.fiat_in_usd }}{% endif %}
+              </td>
+              <td class="py-2">
+                {% if m.expenses and m.expenses.size > 0 %}
+                  {% for e in m.expenses %}
+                  <p>
+                    {{ e.item }}: ${{ e.usd }}
+                    {% if e.receipt_url %}
+                    · <a
+                      href="{{ e.receipt_url }}"
+                      class="underline hover:text-orange-500">receipt</a>
+                    {% endif %}
+                    {% if e.txid %}
+                    · <a
+                      href="https://whatsonchain.com/tx/{{ e.txid }}"
+                      class="underline hover:text-orange-500">tx</a>
+                    {% endif %}
+                  </p>
+                  {% endfor %}
+                {% else %}
+                  —
+                {% endif %}
+                {% if m.note %}
+                <p class="text-slate-600">
+                  {{ m.note }}
+                </p>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {% include office-hours.html %}
+
+    <div class="mb-24"></div>
+  </div>
+</main>
+
+<script src="{{ site.baseurl }}/assets/js/bitblocks-support.js"></script>
+<script>
+  BitblocksSupport.render();
+</script>
